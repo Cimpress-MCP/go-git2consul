@@ -24,6 +24,4 @@ cmake -DBUILD_SHARED_LIBS=OFF \
       -DCMAKE_INSTALL_PREFIX=../install \
       ..
 
-pkg-config --list-all
-
 cmake --build . --target install

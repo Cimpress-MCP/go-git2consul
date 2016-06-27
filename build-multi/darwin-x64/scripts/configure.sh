@@ -11,7 +11,7 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/tmp/libgit2/install/lib/pkgconfig:/t
 
 # Install libraries
 /scripts/install-openssl.sh
-/scripts/install-libssh2.sh
+# /scripts/install-libssh2.sh
 # /scripts/install-libgit2.sh
 
 # Set up go environment
