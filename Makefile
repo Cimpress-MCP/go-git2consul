@@ -4,6 +4,8 @@ TEST?=$(shell go list ./... | grep -v /vendor/)
 GIT_COMMIT=$(shell git rev-parse HEAD)
 GIT_DIRTY=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)
 
+#TODO: Verify that
+
 default: test
 
 test: generate
@@ -42,3 +44,8 @@ run-build-image:
 	@echo " ===> Building..."
 	@docker run --rm --name git2consul-builder -v $(CURDIR):/app -v $(CURDIR)/build/bin:/build/bin --entrypoint /app/build/build.sh cimpress/git2consul-builder
 .PHONY: run-build-image
+
+crossbuild:
+	@echo " === Building for linux"
+	@docker run --rm -v $(CURDIR):/app -v $(CURDIR)/bin:/build/bin --entrypoint /app/crossbuild/scripts/build.sh git2consul/crossbuild
+.PHONY: crossbuild
